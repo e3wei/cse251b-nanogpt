@@ -170,6 +170,83 @@ Train a small model to verify everything works:
 python train.py --dataset=fineweb --n_layer=8 --n_head=8 --n_embd=512 --max_iters=5000
 ```
 
+This repository also includes a standalone `train.py` that loads a **Python config file** (first argument, e.g. `config/train_100m_baseline.py`), then applies **extra `key=value` arguments** from the command line in order.
+
+**Command shape:**
+
+```text
+python train.py <config.py> [key=value ...]
+```
+
+- Put the config path first if you use one. Anything after it is parsed as `name=value` and overrides that variable in the config.
+- **Types:** booleans accept `true` / `false` / `1` / `yes`; integers and floats are parsed as numbers; anything else is kept as a string (e.g. `device=cuda`, `out_dir=my_run`).
+- **Lists/tuples** (e.g. `seq_len_schedule`) cannot be set safely from the CLI; define them in the config `.py` file.
+
+**Train from scratch**
+
+```bash
+python train.py config/train_100m_baseline.py
+```
+
+**Override hyperparameters without editing the config file**
+
+```bash
+# Learning rate, total steps, and output directory
+python train.py config/train_100m_baseline.py learning_rate=2e-4 max_iters=20000 out_dir=out_exp_lr2e4
+
+# Data location and shard file names (paths are relative to cwd unless absolute)
+python train.py config/train_100m_baseline.py dataset_dir="/path/to/tokenized_data" train_bin=train.bin val_bin=val.bin
+
+# Batching and sequence length cap
+python train.py config/train_100m_baseline.py batch_size=4 gradient_accumulation_steps=32 block_size=1024
+
+# Model shape (must match how you built the model if resuming)
+python train.py config/train_100m_baseline.py n_layer=22 n_head=8 n_embd=512
+
+# Optimizer and schedule
+python train.py config/train_100m_baseline.py weight_decay=0.1 warmup_iters=200 lr_decay_iters=12000 min_lr=3e-5 grad_clip=1.0
+
+# Logging and checkpointing
+python train.py config/train_100m_baseline.py eval_interval=200 eval_iters=50 log_interval=20 always_save_checkpoint=false
+
+# Early stopping (0 = disabled)
+python train.py config/train_100m_baseline.py early_stop_patience=15 early_stop_min_delta=0.0
+
+# Device and numerics
+python train.py config/train_100m_baseline.py device=cuda dtype=bfloat16 compile=false seed=1337
+
+# Initialization: scratch (default) or resume
+python train.py config/train_100m_baseline.py init_from=scratch
+```
+
+**Resume from checkpoint**
+
+Resume loads **`out_dir/ckpt_last.pt`** (saved each eval): model weights, optimizer state, `iter_num`, and `best_val_loss`. It does **not** use `checkpoint.pt` / `ckpt_best.pt` (those are best-val snapshots for eval/submission).
+
+```bash
+# Same out_dir as the run you stopped; increase max_iters so training actually continues
+python train.py config/train_100m_baseline.py init_from=resume max_iters=20000
+
+# Resume but write checkpoints to a new directory (optional; copy ckpt_last.pt into that dir first if needed)
+python train.py config/train_100m_baseline.py init_from=resume out_dir=out_100m_baseline max_iters=20000
+```
+
+If `max_iters` is not greater than the step stored in `ckpt_last.pt`, the training loop runs zero iterations.
+
+**Reference — variables you can override from the CLI** (all optional; defaults come from `train.py` unless set in your config):
+
+| Area | Keys |
+|------|------|
+| I/O | `out_dir`, `dataset_dir`, `train_bin`, `val_bin` |
+| Batching | `batch_size`, `gradient_accumulation_steps`, `block_size` |
+| Model | `n_layer`, `n_head`, `n_embd`, `bias`, `norm_type`, `norm_eps`, `activation`, `ffn_mult`, `ffn_dim_multiple_of`, `qk_norm`, `rope_base` |
+| Optimizer / LR | `learning_rate`, `min_lr`, `max_iters`, `weight_decay`, `beta1`, `beta2`, `grad_clip`, `warmup_iters`, `lr_decay_iters` |
+| Schedules | `seq_len_schedule` (config file only) |
+| Stopping | `early_stop_patience`, `early_stop_min_delta` |
+| Logging | `eval_interval`, `eval_iters`, `log_interval`, `always_save_checkpoint` |
+| Runtime | `device`, `dtype`, `compile`, `seed` |
+| Init | `init_from` (`scratch` or `resume`) |
+
 ### 5. Evaluate on the val set
 
 ```bash

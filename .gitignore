@@ -1,3 +1,7 @@
+build-nanogpt/
+*.bin
+out_100m_baseline/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
