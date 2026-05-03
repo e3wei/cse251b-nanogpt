@@ -1,15 +1,6 @@
 build-nanogpt/
 *.bin
-out_100m_baseline/
-out_smoke_tier1_control/
-out_smoke_tier1_muon/
-out_smoke_tier1_wsd/
-out_tier1_quick_control_current/
-out_tier1_quick_o1_muon_adamw/
-out_tier1_quick_o2_wsd/
-out_tier1_quick_a1_depth_width_12x640/
-out_tier1_quick_a1_depth_width_16x576/
-out_tier1_quick_r1_fixed_1024/
+ckpt/
 
 
 # Byte-compiled / optimized / DLL files
