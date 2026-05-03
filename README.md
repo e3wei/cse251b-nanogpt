@@ -240,7 +240,8 @@ If `max_iters` is not greater than the step stored in `ckpt_last.pt`, the traini
 | I/O | `out_dir`, `dataset_dir`, `train_bin`, `val_bin` |
 | Batching | `batch_size`, `gradient_accumulation_steps`, `block_size` |
 | Model | `n_layer`, `n_head`, `n_embd`, `bias`, `norm_type`, `norm_eps`, `activation`, `ffn_mult`, `ffn_dim_multiple_of`, `qk_norm`, `rope_base` |
-| Optimizer / LR | `learning_rate`, `min_lr`, `max_iters`, `weight_decay`, `beta1`, `beta2`, `grad_clip`, `warmup_iters`, `lr_decay_iters` |
+| Optimizer / LR | `optimizer_type` (`adamw` or `muon_adamw`), `learning_rate`, `muon_lr`, `muon_momentum`, `muon_ns_steps`, `min_lr`, `max_iters`, `weight_decay`, `beta1`, `beta2`, `grad_clip`, `warmup_iters`, `lr_decay_iters` |
+| LR Schedule | `lr_schedule` (`cosine` or `wsd`), `wsd_cooldown_frac`, `wsd_final_lr` |
 | Schedules | `seq_len_schedule` (config file only) |
 | Stopping | `early_stop_patience`, `early_stop_min_delta` |
 | Logging | `eval_interval`, `eval_iters`, `log_interval`, `always_save_checkpoint` |
@@ -251,11 +252,28 @@ If `max_iters` is not greater than the step stored in `ckpt_last.pt`, the traini
 
 ```bash
 # Local eval during development
-python evaluate.py --model_dir /path/to/your/model/ --data val.bin
+python evaluate.py --model_dir . --checkpoint_filename out_100m_baseline/checkpoint.pt --data val.bin
 
 # Once you've uploaded to HuggingFace, verify the submission works:
 python evaluate.py --hf_repo your-username/cse251b-group-XX --data val.bin
 ```
+
+### Tier-1 ablation configs (control + O1/O2/A1/R1)
+
+The repository includes prebuilt Tier-1 ablation configs in `config/tier1_ablation/` and a PowerShell runner:
+
+```powershell
+# quick proxy run (2k iters) for any Tier-1 experiment
+powershell -ExecutionPolicy Bypass -File scripts/run_tier1_ablation.ps1 -Experiment control_current -Profile quick
+powershell -ExecutionPolicy Bypass -File scripts/run_tier1_ablation.ps1 -Experiment o1_muon_adamw -Profile quick
+powershell -ExecutionPolicy Bypass -File scripts/run_tier1_ablation.ps1 -Experiment o2_wsd -Profile quick
+powershell -ExecutionPolicy Bypass -File scripts/run_tier1_ablation.ps1 -Experiment a1_depth_width_12x640 -Profile quick
+powershell -ExecutionPolicy Bypass -File scripts/run_tier1_ablation.ps1 -Experiment r1_fixed_1024 -Profile quick
+```
+
+- Use `-Profile full` to run each config's default full-length setup.
+- Use `-EvalData provided_val.bin` to avoid evaluating on a validation split derived from your training corpus.
+- To return to current implementation behavior at any time, run `-Experiment control_current` or continue using `config/train_100m_baseline.py`.
 
 ### 6. Iterate!
 

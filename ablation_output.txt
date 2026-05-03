@@ -1,0 +1,668 @@
+==> Running control_current (quick)
+train setup: optimizer_type=adamw, lr_schedule=cosine, device=cuda, dtype=bfloat16
+iter     0 | train_loss 10.9156 | val_loss 10.9062 | lr 1.500e-06 | seq_len 256
+new best checkpoint saved at iter 0: val_loss=10.9062
+iter    20 | train_loss 9.8958 | lr 3.150e-05 | seq_len 256 | dt 1227.7ms | toks/step 32768
+iter    40 | train_loss 9.2393 | lr 6.150e-05 | seq_len 256 | dt 1073.6ms | toks/step 32768
+iter    60 | train_loss 8.4856 | lr 9.150e-05 | seq_len 256 | dt 1118.2ms | toks/step 32768
+iter    80 | train_loss 7.6575 | lr 1.215e-04 | seq_len 256 | dt 1066.6ms | toks/step 32768
+iter   100 | train_loss 7.1835 | lr 1.515e-04 | seq_len 256 | dt 1071.5ms | toks/step 32768
+iter   120 | train_loss 6.8801 | lr 1.815e-04 | seq_len 256 | dt 1079.4ms | toks/step 32768
+iter   140 | train_loss 6.7033 | lr 2.115e-04 | seq_len 256 | dt 1088.1ms | toks/step 32768
+iter   160 | train_loss 6.5769 | lr 2.415e-04 | seq_len 256 | dt 1063.2ms | toks/step 32768
+iter   180 | train_loss 6.4224 | lr 2.715e-04 | seq_len 256 | dt 1109.3ms | toks/step 32768
+iter   200 | train_loss 6.3094 | val_loss 6.3238 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 200: val_loss=6.3238
+iter   220 | train_loss 6.2174 | lr 2.999e-04 | seq_len 256 | dt 1278.5ms | toks/step 32768
+iter   240 | train_loss 6.0900 | lr 2.997e-04 | seq_len 256 | dt 1130.9ms | toks/step 32768
+iter   260 | train_loss 6.0174 | lr 2.993e-04 | seq_len 256 | dt 1163.2ms | toks/step 32768
+iter   280 | train_loss 5.9277 | lr 2.987e-04 | seq_len 256 | dt 1201.8ms | toks/step 32768
+iter   300 | train_loss 5.8657 | lr 2.979e-04 | seq_len 256 | dt 1189.6ms | toks/step 32768
+iter   320 | train_loss 5.8216 | lr 2.970e-04 | seq_len 256 | dt 1064.8ms | toks/step 32768
+iter   340 | train_loss 5.8027 | lr 2.960e-04 | seq_len 256 | dt 1053.2ms | toks/step 32768
+iter   360 | train_loss 5.7012 | lr 2.948e-04 | seq_len 256 | dt 1101.7ms | toks/step 32768
+iter   380 | train_loss 5.6230 | lr 2.934e-04 | seq_len 256 | dt 1057.1ms | toks/step 32768
+iter   400 | train_loss 5.6402 | val_loss 5.5786 | lr 2.919e-04 | seq_len 256
+new best checkpoint saved at iter 400: val_loss=5.5786
+iter   420 | train_loss 5.5271 | lr 2.902e-04 | seq_len 256 | dt 1196.6ms | toks/step 32768
+iter   440 | train_loss 5.4833 | lr 2.883e-04 | seq_len 256 | dt 1197.9ms | toks/step 32768
+iter   460 | train_loss 5.5127 | lr 2.863e-04 | seq_len 256 | dt 1080.8ms | toks/step 32768
+iter   480 | train_loss 5.4258 | lr 2.842e-04 | seq_len 256 | dt 1138.5ms | toks/step 32768
+iter   500 | train_loss 5.4034 | lr 2.819e-04 | seq_len 256 | dt 1088.5ms | toks/step 32768
+iter   520 | train_loss 5.4417 | lr 2.795e-04 | seq_len 256 | dt 1059.6ms | toks/step 32768
+iter   540 | train_loss 5.3258 | lr 2.769e-04 | seq_len 256 | dt 1055.7ms | toks/step 32768
+iter   560 | train_loss 5.2492 | lr 2.742e-04 | seq_len 256 | dt 1060.1ms | toks/step 32768
+iter   580 | train_loss 5.2930 | lr 2.714e-04 | seq_len 256 | dt 1098.6ms | toks/step 32768
+iter   600 | train_loss 5.2959 | val_loss 5.2721 | lr 2.684e-04 | seq_len 256
+new best checkpoint saved at iter 600: val_loss=5.2721
+iter   620 | train_loss 5.3051 | lr 2.653e-04 | seq_len 256 | dt 1121.1ms | toks/step 32768
+iter   640 | train_loss 5.1330 | lr 2.621e-04 | seq_len 256 | dt 1132.7ms | toks/step 32768
+iter   660 | train_loss 5.1591 | lr 2.588e-04 | seq_len 256 | dt 1107.6ms | toks/step 32768
+iter   680 | train_loss 5.1368 | lr 2.553e-04 | seq_len 256 | dt 1131.0ms | toks/step 32768
+iter   700 | train_loss 5.1325 | lr 2.518e-04 | seq_len 256 | dt 1069.0ms | toks/step 32768
+iter   720 | train_loss 5.1109 | lr 2.481e-04 | seq_len 256 | dt 1075.5ms | toks/step 32768
+iter   740 | train_loss 5.1771 | lr 2.444e-04 | seq_len 256 | dt 1062.1ms | toks/step 32768
+iter   760 | train_loss 5.0999 | lr 2.405e-04 | seq_len 256 | dt 1072.0ms | toks/step 32768
+iter   780 | train_loss 5.0262 | lr 2.365e-04 | seq_len 256 | dt 1060.8ms | toks/step 32768
+iter   800 | train_loss 5.0290 | val_loss 4.9695 | lr 2.325e-04 | seq_len 256
+new best checkpoint saved at iter 800: val_loss=4.9695
+iter   820 | train_loss 4.9958 | lr 2.284e-04 | seq_len 256 | dt 1212.7ms | toks/step 32768
+iter   840 | train_loss 5.0206 | lr 2.242e-04 | seq_len 256 | dt 1886.6ms | toks/step 32768
+iter   860 | train_loss 4.8854 | lr 2.199e-04 | seq_len 256 | dt 1062.4ms | toks/step 32768
+iter   880 | train_loss 4.9724 | lr 2.156e-04 | seq_len 256 | dt 1120.9ms | toks/step 32768
+iter   900 | train_loss 4.9597 | lr 2.112e-04 | seq_len 256 | dt 1063.7ms | toks/step 32768
+iter   920 | train_loss 4.9112 | lr 2.067e-04 | seq_len 256 | dt 1105.0ms | toks/step 32768
+iter   940 | train_loss 4.8834 | lr 2.022e-04 | seq_len 256 | dt 1103.5ms | toks/step 32768
+iter   960 | train_loss 4.9313 | lr 1.977e-04 | seq_len 256 | dt 1070.1ms | toks/step 32768
+iter   980 | train_loss 4.8663 | lr 1.931e-04 | seq_len 256 | dt 1074.8ms | toks/step 32768
+iter  1000 | train_loss 4.8772 | val_loss 4.7804 | lr 1.884e-04 | seq_len 256
+new best checkpoint saved at iter 1000: val_loss=4.7804
+iter  1020 | train_loss 4.7832 | lr 1.838e-04 | seq_len 256 | dt 1123.0ms | toks/step 32768
+iter  1040 | train_loss 4.7749 | lr 1.791e-04 | seq_len 256 | dt 1181.2ms | toks/step 32768
+iter  1060 | train_loss 4.7965 | lr 1.744e-04 | seq_len 256 | dt 1084.1ms | toks/step 32768
+iter  1080 | train_loss 4.6954 | lr 1.697e-04 | seq_len 256 | dt 1093.0ms | toks/step 32768
+iter  1100 | train_loss 4.8011 | lr 1.650e-04 | seq_len 256 | dt 1046.8ms | toks/step 32768
+iter  1120 | train_loss 4.6407 | lr 1.603e-04 | seq_len 256 | dt 1093.3ms | toks/step 32768
+iter  1140 | train_loss 4.7416 | lr 1.556e-04 | seq_len 256 | dt 1073.1ms | toks/step 32768
+iter  1160 | train_loss 4.7845 | lr 1.509e-04 | seq_len 256 | dt 1069.8ms | toks/step 32768
+iter  1180 | train_loss 4.6573 | lr 1.462e-04 | seq_len 256 | dt 1088.3ms | toks/step 32768
+iter  1200 | train_loss 4.7169 | val_loss 4.7295 | lr 1.416e-04 | seq_len 256
+new best checkpoint saved at iter 1200: val_loss=4.7295
+iter  1220 | train_loss 4.7790 | lr 1.369e-04 | seq_len 256 | dt 1076.4ms | toks/step 32768
+iter  1240 | train_loss 4.6401 | lr 1.323e-04 | seq_len 256 | dt 1086.5ms | toks/step 32768
+iter  1260 | train_loss 4.7015 | lr 1.278e-04 | seq_len 256 | dt 1081.7ms | toks/step 32768
+iter  1280 | train_loss 4.6484 | lr 1.233e-04 | seq_len 256 | dt 1092.2ms | toks/step 32768
+iter  1300 | train_loss 4.7834 | lr 1.188e-04 | seq_len 256 | dt 1088.1ms | toks/step 32768
+iter  1320 | train_loss 4.6708 | lr 1.144e-04 | seq_len 256 | dt 1099.5ms | toks/step 32768
+iter  1340 | train_loss 4.6840 | lr 1.101e-04 | seq_len 256 | dt 1103.3ms | toks/step 32768
+iter  1360 | train_loss 4.6655 | lr 1.058e-04 | seq_len 256 | dt 1130.0ms | toks/step 32768
+iter  1380 | train_loss 4.6699 | lr 1.016e-04 | seq_len 256 | dt 1104.1ms | toks/step 32768
+iter  1400 | train_loss 4.5576 | val_loss 4.5549 | lr 9.750e-05 | seq_len 256
+new best checkpoint saved at iter 1400: val_loss=4.5549
+iter  1420 | train_loss 4.6439 | lr 9.346e-05 | seq_len 256 | dt 1104.6ms | toks/step 32768
+iter  1440 | train_loss 4.5607 | lr 8.951e-05 | seq_len 256 | dt 1130.9ms | toks/step 32768
+iter  1460 | train_loss 4.6043 | lr 8.565e-05 | seq_len 256 | dt 1073.5ms | toks/step 32768
+iter  1480 | train_loss 4.5323 | lr 8.189e-05 | seq_len 256 | dt 1078.4ms | toks/step 32768
+iter  1500 | train_loss 4.7299 | lr 7.822e-05 | seq_len 512 | dt 2338.5ms | toks/step 65536
+iter  1520 | train_loss 4.5710 | lr 7.467e-05 | seq_len 512 | dt 1879.9ms | toks/step 65536
+iter  1540 | train_loss 4.4822 | lr 7.122e-05 | seq_len 512 | dt 1888.6ms | toks/step 65536
+iter  1560 | train_loss 4.5044 | lr 6.789e-05 | seq_len 512 | dt 1897.4ms | toks/step 65536
+iter  1580 | train_loss 4.5199 | lr 6.468e-05 | seq_len 512 | dt 1875.7ms | toks/step 65536
+iter  1600 | train_loss 4.4813 | val_loss 4.4571 | lr 6.158e-05 | seq_len 512
+new best checkpoint saved at iter 1600: val_loss=4.4571
+iter  1620 | train_loss 4.4311 | lr 5.862e-05 | seq_len 512 | dt 1893.0ms | toks/step 65536
+iter  1640 | train_loss 4.4926 | lr 5.578e-05 | seq_len 512 | dt 1896.8ms | toks/step 65536
+iter  1660 | train_loss 4.5426 | lr 5.308e-05 | seq_len 512 | dt 1877.9ms | toks/step 65536
+iter  1680 | train_loss 4.4636 | lr 5.051e-05 | seq_len 512 | dt 1881.5ms | toks/step 65536
+iter  1700 | train_loss 4.4657 | lr 4.809e-05 | seq_len 512 | dt 1911.4ms | toks/step 65536
+iter  1720 | train_loss 4.5169 | lr 4.580e-05 | seq_len 512 | dt 1883.5ms | toks/step 65536
+iter  1740 | train_loss 4.4292 | lr 4.366e-05 | seq_len 512 | dt 1880.7ms | toks/step 65536
+iter  1760 | train_loss 4.4410 | lr 4.167e-05 | seq_len 512 | dt 1950.9ms | toks/step 65536
+iter  1780 | train_loss 4.3951 | lr 3.983e-05 | seq_len 512 | dt 1874.9ms | toks/step 65536
+iter  1800 | train_loss 4.4241 | val_loss 4.4707 | lr 3.814e-05 | seq_len 512
+iter  1820 | train_loss 4.4656 | lr 3.661e-05 | seq_len 512 | dt 1883.1ms | toks/step 65536
+iter  1840 | train_loss 4.4407 | lr 3.523e-05 | seq_len 512 | dt 1896.5ms | toks/step 65536
+iter  1860 | train_loss 4.4688 | lr 3.401e-05 | seq_len 512 | dt 1887.6ms | toks/step 65536
+iter  1880 | train_loss 4.4085 | lr 3.295e-05 | seq_len 512 | dt 1941.9ms | toks/step 65536
+iter  1900 | train_loss 4.4106 | lr 3.205e-05 | seq_len 512 | dt 1870.3ms | toks/step 65536
+iter  1920 | train_loss 4.3840 | lr 3.131e-05 | seq_len 512 | dt 1881.8ms | toks/step 65536
+iter  1940 | train_loss 4.4119 | lr 3.074e-05 | seq_len 512 | dt 1875.1ms | toks/step 65536
+iter  1960 | train_loss 4.4150 | lr 3.033e-05 | seq_len 512 | dt 2028.3ms | toks/step 65536
+iter  1980 | train_loss 4.4257 | lr 3.008e-05 | seq_len 512 | dt 2011.2ms | toks/step 65536
+iter  1999 | train_loss 4.3689 | val_loss 4.3712 | lr 3.000e-05 | seq_len 512
+new best checkpoint saved at iter 1999: val_loss=4.3712
+==> Evaluating out_tier1_quick_control_current\checkpoint.pt on provided_val.bin
+
+--- Evaluating local model: . ---
+Loading model from .\out_tier1_quick_control_current\checkpoint.pt...
+Total parameters:       92,079,872
+Trainable parameters:   92,079,872
+Evaluating on provided_val.bin (block_size=1024)...
+
+==================================================
+  Perplexity:          97.8504
+  Avg loss (nats):     4.583440
+  Tokens evaluated:    5,169,152
+  Total parameters:    92,079,872
+  Eval time:           94.6s
+==================================================
+==> Running o1_muon_adamw (quick)
+train setup: optimizer_type=muon_adamw, lr_schedule=cosine, device=cuda, dtype=bfloat16
+iter     0 | train_loss 10.9156 | val_loss 10.9189 | lr 1.500e-06 | seq_len 256
+new best checkpoint saved at iter 0: val_loss=10.9189
+iter    20 | train_loss 9.9891 | lr 3.150e-05 | seq_len 256 | dt 1109.8ms | toks/step 32768
+iter    40 | train_loss 9.3822 | lr 6.150e-05 | seq_len 256 | dt 1150.3ms | toks/step 32768
+iter    60 | train_loss 8.5890 | lr 9.150e-05 | seq_len 256 | dt 1183.2ms | toks/step 32768
+iter    80 | train_loss 7.7540 | lr 1.215e-04 | seq_len 256 | dt 1130.2ms | toks/step 32768
+iter   100 | train_loss 7.2439 | lr 1.515e-04 | seq_len 256 | dt 1127.4ms | toks/step 32768
+iter   120 | train_loss 6.9495 | lr 1.815e-04 | seq_len 256 | dt 1170.6ms | toks/step 32768
+iter   140 | train_loss 6.7784 | lr 2.115e-04 | seq_len 256 | dt 1113.4ms | toks/step 32768
+iter   160 | train_loss 6.6616 | lr 2.415e-04 | seq_len 256 | dt 1126.9ms | toks/step 32768
+iter   180 | train_loss 6.4925 | lr 2.715e-04 | seq_len 256 | dt 1116.3ms | toks/step 32768
+iter   200 | train_loss 6.3863 | val_loss 6.3922 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 200: val_loss=6.3922
+iter   220 | train_loss 6.3040 | lr 2.999e-04 | seq_len 256 | dt 1117.8ms | toks/step 32768
+iter   240 | train_loss 6.1680 | lr 2.997e-04 | seq_len 256 | dt 1137.4ms | toks/step 32768
+iter   260 | train_loss 6.0907 | lr 2.993e-04 | seq_len 256 | dt 1111.8ms | toks/step 32768
+iter   280 | train_loss 6.0080 | lr 2.987e-04 | seq_len 256 | dt 1123.3ms | toks/step 32768
+iter   300 | train_loss 5.9461 | lr 2.979e-04 | seq_len 256 | dt 1105.1ms | toks/step 32768
+iter   320 | train_loss 5.9124 | lr 2.970e-04 | seq_len 256 | dt 1114.2ms | toks/step 32768
+iter   340 | train_loss 5.8819 | lr 2.960e-04 | seq_len 256 | dt 1120.3ms | toks/step 32768
+iter   360 | train_loss 5.7896 | lr 2.948e-04 | seq_len 256 | dt 1116.7ms | toks/step 32768
+iter   380 | train_loss 5.7043 | lr 2.934e-04 | seq_len 256 | dt 1119.0ms | toks/step 32768
+iter   400 | train_loss 5.7215 | val_loss 5.6607 | lr 2.919e-04 | seq_len 256
+new best checkpoint saved at iter 400: val_loss=5.6607
+iter   420 | train_loss 5.6144 | lr 2.902e-04 | seq_len 256 | dt 1136.9ms | toks/step 32768
+iter   440 | train_loss 5.5708 | lr 2.883e-04 | seq_len 256 | dt 1116.2ms | toks/step 32768
+iter   460 | train_loss 5.6003 | lr 2.863e-04 | seq_len 256 | dt 1130.7ms | toks/step 32768
+iter   480 | train_loss 5.4978 | lr 2.842e-04 | seq_len 256 | dt 1119.5ms | toks/step 32768
+iter   500 | train_loss 5.4832 | lr 2.819e-04 | seq_len 256 | dt 1102.8ms | toks/step 32768
+iter   520 | train_loss 5.5113 | lr 2.795e-04 | seq_len 256 | dt 1117.8ms | toks/step 32768
+iter   540 | train_loss 5.4015 | lr 2.769e-04 | seq_len 256 | dt 1128.0ms | toks/step 32768
+iter   560 | train_loss 5.3292 | lr 2.742e-04 | seq_len 256 | dt 1105.9ms | toks/step 32768
+iter   580 | train_loss 5.3574 | lr 2.714e-04 | seq_len 256 | dt 1146.2ms | toks/step 32768
+iter   600 | train_loss 5.3593 | val_loss 5.3332 | lr 2.684e-04 | seq_len 256
+new best checkpoint saved at iter 600: val_loss=5.3332
+iter   620 | train_loss 5.3757 | lr 2.653e-04 | seq_len 256 | dt 1109.9ms | toks/step 32768
+iter   640 | train_loss 5.1891 | lr 2.621e-04 | seq_len 256 | dt 1155.6ms | toks/step 32768
+iter   660 | train_loss 5.2263 | lr 2.588e-04 | seq_len 256 | dt 1105.8ms | toks/step 32768
+iter   680 | train_loss 5.2011 | lr 2.553e-04 | seq_len 256 | dt 1122.8ms | toks/step 32768
+iter   700 | train_loss 5.1996 | lr 2.518e-04 | seq_len 256 | dt 1108.8ms | toks/step 32768
+iter   720 | train_loss 5.1615 | lr 2.481e-04 | seq_len 256 | dt 1244.4ms | toks/step 32768
+iter   740 | train_loss 5.2337 | lr 2.444e-04 | seq_len 256 | dt 1109.4ms | toks/step 32768
+iter   760 | train_loss 5.1598 | lr 2.405e-04 | seq_len 256 | dt 1131.3ms | toks/step 32768
+iter   780 | train_loss 5.0802 | lr 2.365e-04 | seq_len 256 | dt 1113.3ms | toks/step 32768
+iter   800 | train_loss 5.0876 | val_loss 5.0339 | lr 2.325e-04 | seq_len 256
+new best checkpoint saved at iter 800: val_loss=5.0339
+iter   820 | train_loss 5.0594 | lr 2.284e-04 | seq_len 256 | dt 1108.5ms | toks/step 32768
+iter   840 | train_loss 5.0807 | lr 2.242e-04 | seq_len 256 | dt 1108.4ms | toks/step 32768
+iter   860 | train_loss 4.9402 | lr 2.199e-04 | seq_len 256 | dt 1109.1ms | toks/step 32768
+iter   880 | train_loss 5.0229 | lr 2.156e-04 | seq_len 256 | dt 1212.6ms | toks/step 32768
+iter   900 | train_loss 5.0140 | lr 2.112e-04 | seq_len 256 | dt 1121.0ms | toks/step 32768
+iter   920 | train_loss 4.9653 | lr 2.067e-04 | seq_len 256 | dt 1178.9ms | toks/step 32768
+iter   940 | train_loss 4.9289 | lr 2.022e-04 | seq_len 256 | dt 1125.6ms | toks/step 32768
+iter   960 | train_loss 4.9728 | lr 1.977e-04 | seq_len 256 | dt 1116.0ms | toks/step 32768
+iter   980 | train_loss 4.9118 | lr 1.931e-04 | seq_len 256 | dt 1121.1ms | toks/step 32768
+iter  1000 | train_loss 4.9318 | val_loss 4.8348 | lr 1.884e-04 | seq_len 256
+new best checkpoint saved at iter 1000: val_loss=4.8348
+iter  1020 | train_loss 4.8425 | lr 1.838e-04 | seq_len 256 | dt 1197.0ms | toks/step 32768
+iter  1040 | train_loss 4.8258 | lr 1.791e-04 | seq_len 256 | dt 1133.3ms | toks/step 32768
+iter  1060 | train_loss 4.8388 | lr 1.744e-04 | seq_len 256 | dt 1111.8ms | toks/step 32768
+iter  1080 | train_loss 4.7488 | lr 1.697e-04 | seq_len 256 | dt 1181.6ms | toks/step 32768
+iter  1100 | train_loss 4.8451 | lr 1.650e-04 | seq_len 256 | dt 1133.9ms | toks/step 32768
+iter  1120 | train_loss 4.6871 | lr 1.603e-04 | seq_len 256 | dt 1115.1ms | toks/step 32768
+iter  1140 | train_loss 4.7761 | lr 1.556e-04 | seq_len 256 | dt 1107.6ms | toks/step 32768
+iter  1160 | train_loss 4.8271 | lr 1.509e-04 | seq_len 256 | dt 1134.5ms | toks/step 32768
+iter  1180 | train_loss 4.7034 | lr 1.462e-04 | seq_len 256 | dt 1151.1ms | toks/step 32768
+iter  1200 | train_loss 4.7558 | val_loss 4.7766 | lr 1.416e-04 | seq_len 256
+new best checkpoint saved at iter 1200: val_loss=4.7766
+iter  1220 | train_loss 4.8204 | lr 1.369e-04 | seq_len 256 | dt 1235.4ms | toks/step 32768
+iter  1240 | train_loss 4.6825 | lr 1.323e-04 | seq_len 256 | dt 1126.9ms | toks/step 32768
+iter  1260 | train_loss 4.7358 | lr 1.278e-04 | seq_len 256 | dt 1121.5ms | toks/step 32768
+iter  1280 | train_loss 4.6968 | lr 1.233e-04 | seq_len 256 | dt 1147.8ms | toks/step 32768
+iter  1300 | train_loss 4.8255 | lr 1.188e-04 | seq_len 256 | dt 1120.3ms | toks/step 32768
+iter  1320 | train_loss 4.7151 | lr 1.144e-04 | seq_len 256 | dt 1134.1ms | toks/step 32768
+iter  1340 | train_loss 4.7228 | lr 1.101e-04 | seq_len 256 | dt 1102.0ms | toks/step 32768
+iter  1360 | train_loss 4.7025 | lr 1.058e-04 | seq_len 256 | dt 1111.0ms | toks/step 32768
+iter  1380 | train_loss 4.7150 | lr 1.016e-04 | seq_len 256 | dt 1127.1ms | toks/step 32768
+iter  1400 | train_loss 4.6023 | val_loss 4.6006 | lr 9.750e-05 | seq_len 256
+new best checkpoint saved at iter 1400: val_loss=4.6006
+iter  1420 | train_loss 4.6838 | lr 9.346e-05 | seq_len 256 | dt 1137.8ms | toks/step 32768
+iter  1440 | train_loss 4.5961 | lr 8.951e-05 | seq_len 256 | dt 1129.9ms | toks/step 32768
+iter  1460 | train_loss 4.6414 | lr 8.565e-05 | seq_len 256 | dt 1124.9ms | toks/step 32768
+iter  1480 | train_loss 4.5712 | lr 8.189e-05 | seq_len 256 | dt 1125.7ms | toks/step 32768
+iter  1500 | train_loss 4.7630 | lr 7.822e-05 | seq_len 512 | dt 1920.6ms | toks/step 65536
+iter  1520 | train_loss 4.6170 | lr 7.467e-05 | seq_len 512 | dt 1809.7ms | toks/step 65536
+iter  1540 | train_loss 4.5280 | lr 7.122e-05 | seq_len 512 | dt 1817.0ms | toks/step 65536
+iter  1560 | train_loss 4.5447 | lr 6.789e-05 | seq_len 512 | dt 1846.4ms | toks/step 65536
+iter  1580 | train_loss 4.5551 | lr 6.468e-05 | seq_len 512 | dt 1813.9ms | toks/step 65536
+iter  1600 | train_loss 4.5102 | val_loss 4.4895 | lr 6.158e-05 | seq_len 512
+new best checkpoint saved at iter 1600: val_loss=4.4895
+iter  1620 | train_loss 4.4715 | lr 5.862e-05 | seq_len 512 | dt 1829.6ms | toks/step 65536
+iter  1640 | train_loss 4.5216 | lr 5.578e-05 | seq_len 512 | dt 1817.6ms | toks/step 65536
+iter  1660 | train_loss 4.5741 | lr 5.308e-05 | seq_len 512 | dt 1816.6ms | toks/step 65536
+iter  1680 | train_loss 4.4925 | lr 5.051e-05 | seq_len 512 | dt 1824.1ms | toks/step 65536
+iter  1700 | train_loss 4.4914 | lr 4.809e-05 | seq_len 512 | dt 1810.3ms | toks/step 65536
+iter  1720 | train_loss 4.5425 | lr 4.580e-05 | seq_len 512 | dt 1818.3ms | toks/step 65536
+iter  1740 | train_loss 4.4583 | lr 4.366e-05 | seq_len 512 | dt 1820.9ms | toks/step 65536
+iter  1760 | train_loss 4.4644 | lr 4.167e-05 | seq_len 512 | dt 1820.3ms | toks/step 65536
+iter  1780 | train_loss 4.4236 | lr 3.983e-05 | seq_len 512 | dt 1815.1ms | toks/step 65536
+iter  1800 | train_loss 4.4456 | val_loss 4.4953 | lr 3.814e-05 | seq_len 512
+iter  1820 | train_loss 4.4873 | lr 3.661e-05 | seq_len 512 | dt 1823.2ms | toks/step 65536
+iter  1840 | train_loss 4.4657 | lr 3.523e-05 | seq_len 512 | dt 1817.2ms | toks/step 65536
+iter  1860 | train_loss 4.4953 | lr 3.401e-05 | seq_len 512 | dt 1819.2ms | toks/step 65536
+iter  1880 | train_loss 4.4302 | lr 3.295e-05 | seq_len 512 | dt 1888.9ms | toks/step 65536
+iter  1900 | train_loss 4.4398 | lr 3.205e-05 | seq_len 512 | dt 1821.6ms | toks/step 65536
+iter  1920 | train_loss 4.4148 | lr 3.131e-05 | seq_len 512 | dt 1810.8ms | toks/step 65536
+iter  1940 | train_loss 4.4313 | lr 3.074e-05 | seq_len 512 | dt 1864.9ms | toks/step 65536
+iter  1960 | train_loss 4.4381 | lr 3.033e-05 | seq_len 512 | dt 1825.8ms | toks/step 65536
+iter  1980 | train_loss 4.4484 | lr 3.008e-05 | seq_len 512 | dt 1827.3ms | toks/step 65536
+iter  1999 | train_loss 4.3926 | val_loss 4.3944 | lr 3.000e-05 | seq_len 512
+new best checkpoint saved at iter 1999: val_loss=4.3944
+==> Evaluating out_tier1_quick_o1_muon_adamw\checkpoint.pt on provided_val.bin
+
+--- Evaluating local model: . ---
+Loading model from .\out_tier1_quick_o1_muon_adamw\checkpoint.pt...
+Total parameters:       92,079,872
+Trainable parameters:   92,079,872
+Evaluating on provided_val.bin (block_size=1024)...
+
+==================================================
+  Perplexity:          99.6236
+  Avg loss (nats):     4.601399
+  Tokens evaluated:    5,169,152
+  Total parameters:    92,079,872
+  Eval time:           94.5s
+==================================================
+==> Running o2_wsd (quick)
+train setup: optimizer_type=adamw, lr_schedule=wsd, device=cuda, dtype=bfloat16
+iter     0 | train_loss 10.9156 | val_loss 10.9062 | lr 1.500e-06 | seq_len 256
+new best checkpoint saved at iter 0: val_loss=10.9062
+iter    20 | train_loss 9.8958 | lr 3.150e-05 | seq_len 256 | dt 1278.3ms | toks/step 32768
+iter    40 | train_loss 9.2394 | lr 6.150e-05 | seq_len 256 | dt 1092.5ms | toks/step 32768
+iter    60 | train_loss 8.4857 | lr 9.150e-05 | seq_len 256 | dt 1119.6ms | toks/step 32768
+iter    80 | train_loss 7.6525 | lr 1.215e-04 | seq_len 256 | dt 1153.8ms | toks/step 32768
+iter   100 | train_loss 7.1845 | lr 1.515e-04 | seq_len 256 | dt 1073.5ms | toks/step 32768
+iter   120 | train_loss 6.8933 | lr 1.815e-04 | seq_len 256 | dt 1066.7ms | toks/step 32768
+iter   140 | train_loss 6.7042 | lr 2.115e-04 | seq_len 256 | dt 1060.3ms | toks/step 32768
+iter   160 | train_loss 6.5841 | lr 2.415e-04 | seq_len 256 | dt 1073.0ms | toks/step 32768
+iter   180 | train_loss 6.4263 | lr 2.715e-04 | seq_len 256 | dt 1102.6ms | toks/step 32768
+iter   200 | train_loss 6.3007 | val_loss 6.3151 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 200: val_loss=6.3151
+iter   220 | train_loss 6.2270 | lr 3.000e-04 | seq_len 256 | dt 1149.7ms | toks/step 32768
+iter   240 | train_loss 6.0920 | lr 3.000e-04 | seq_len 256 | dt 1074.4ms | toks/step 32768
+iter   260 | train_loss 6.0192 | lr 3.000e-04 | seq_len 256 | dt 1093.0ms | toks/step 32768
+iter   280 | train_loss 5.9285 | lr 3.000e-04 | seq_len 256 | dt 1086.1ms | toks/step 32768
+iter   300 | train_loss 5.8722 | lr 3.000e-04 | seq_len 256 | dt 1053.4ms | toks/step 32768
+iter   320 | train_loss 5.8204 | lr 3.000e-04 | seq_len 256 | dt 1130.6ms | toks/step 32768
+iter   340 | train_loss 5.8034 | lr 3.000e-04 | seq_len 256 | dt 1103.9ms | toks/step 32768
+iter   360 | train_loss 5.7044 | lr 3.000e-04 | seq_len 256 | dt 1076.5ms | toks/step 32768
+iter   380 | train_loss 5.6255 | lr 3.000e-04 | seq_len 256 | dt 1177.9ms | toks/step 32768
+iter   400 | train_loss 5.6385 | val_loss 5.5813 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 400: val_loss=5.5813
+iter   420 | train_loss 5.5291 | lr 3.000e-04 | seq_len 256 | dt 1172.4ms | toks/step 32768
+iter   440 | train_loss 5.4849 | lr 3.000e-04 | seq_len 256 | dt 1072.0ms | toks/step 32768
+iter   460 | train_loss 5.5143 | lr 3.000e-04 | seq_len 256 | dt 1059.5ms | toks/step 32768
+iter   480 | train_loss 5.4281 | lr 3.000e-04 | seq_len 256 | dt 1062.2ms | toks/step 32768
+iter   500 | train_loss 5.4097 | lr 3.000e-04 | seq_len 256 | dt 1059.1ms | toks/step 32768
+iter   520 | train_loss 5.4464 | lr 3.000e-04 | seq_len 256 | dt 1066.2ms | toks/step 32768
+iter   540 | train_loss 5.3265 | lr 3.000e-04 | seq_len 256 | dt 1067.3ms | toks/step 32768
+iter   560 | train_loss 5.2511 | lr 3.000e-04 | seq_len 256 | dt 1104.9ms | toks/step 32768
+iter   580 | train_loss 5.2917 | lr 3.000e-04 | seq_len 256 | dt 1108.8ms | toks/step 32768
+iter   600 | train_loss 5.2952 | val_loss 5.2709 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 600: val_loss=5.2709
+iter   620 | train_loss 5.3061 | lr 3.000e-04 | seq_len 256 | dt 1093.5ms | toks/step 32768
+iter   640 | train_loss 5.1333 | lr 3.000e-04 | seq_len 256 | dt 1171.5ms | toks/step 32768
+iter   660 | train_loss 5.1594 | lr 3.000e-04 | seq_len 256 | dt 1192.3ms | toks/step 32768
+iter   680 | train_loss 5.1307 | lr 3.000e-04 | seq_len 256 | dt 1167.1ms | toks/step 32768
+iter   700 | train_loss 5.1263 | lr 3.000e-04 | seq_len 256 | dt 1097.9ms | toks/step 32768
+iter   720 | train_loss 5.1105 | lr 3.000e-04 | seq_len 256 | dt 1091.8ms | toks/step 32768
+iter   740 | train_loss 5.1738 | lr 3.000e-04 | seq_len 256 | dt 1079.5ms | toks/step 32768
+iter   760 | train_loss 5.0909 | lr 3.000e-04 | seq_len 256 | dt 1052.7ms | toks/step 32768
+iter   780 | train_loss 5.0210 | lr 3.000e-04 | seq_len 256 | dt 1061.3ms | toks/step 32768
+iter   800 | train_loss 5.0248 | val_loss 4.9653 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 800: val_loss=4.9653
+iter   820 | train_loss 4.9904 | lr 3.000e-04 | seq_len 256 | dt 1075.4ms | toks/step 32768
+iter   840 | train_loss 5.0220 | lr 3.000e-04 | seq_len 256 | dt 1140.5ms | toks/step 32768
+iter   860 | train_loss 4.8751 | lr 3.000e-04 | seq_len 256 | dt 1057.8ms | toks/step 32768
+iter   880 | train_loss 4.9612 | lr 3.000e-04 | seq_len 256 | dt 1081.1ms | toks/step 32768
+iter   900 | train_loss 4.9472 | lr 3.000e-04 | seq_len 256 | dt 1059.8ms | toks/step 32768
+iter   920 | train_loss 4.9048 | lr 3.000e-04 | seq_len 256 | dt 1064.3ms | toks/step 32768
+iter   940 | train_loss 4.8676 | lr 3.000e-04 | seq_len 256 | dt 1091.3ms | toks/step 32768
+iter   960 | train_loss 4.9172 | lr 3.000e-04 | seq_len 256 | dt 1075.2ms | toks/step 32768
+iter   980 | train_loss 4.8525 | lr 3.000e-04 | seq_len 256 | dt 1059.0ms | toks/step 32768
+iter  1000 | train_loss 4.8639 | val_loss 4.7614 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 1000: val_loss=4.7614
+iter  1020 | train_loss 4.7641 | lr 3.000e-04 | seq_len 256 | dt 1115.9ms | toks/step 32768
+iter  1040 | train_loss 4.7554 | lr 3.000e-04 | seq_len 256 | dt 1113.5ms | toks/step 32768
+iter  1060 | train_loss 4.7758 | lr 3.000e-04 | seq_len 256 | dt 1101.7ms | toks/step 32768
+iter  1080 | train_loss 4.6736 | lr 3.000e-04 | seq_len 256 | dt 1083.7ms | toks/step 32768
+iter  1100 | train_loss 4.7780 | lr 3.000e-04 | seq_len 256 | dt 1059.3ms | toks/step 32768
+iter  1120 | train_loss 4.6165 | lr 3.000e-04 | seq_len 256 | dt 1061.9ms | toks/step 32768
+iter  1140 | train_loss 4.7126 | lr 3.000e-04 | seq_len 256 | dt 1053.7ms | toks/step 32768
+iter  1160 | train_loss 4.7527 | lr 3.000e-04 | seq_len 256 | dt 1066.1ms | toks/step 32768
+iter  1180 | train_loss 4.6320 | lr 3.000e-04 | seq_len 256 | dt 1112.7ms | toks/step 32768
+iter  1200 | train_loss 4.6912 | val_loss 4.7017 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 1200: val_loss=4.7017
+iter  1220 | train_loss 4.7460 | lr 3.000e-04 | seq_len 256 | dt 1063.4ms | toks/step 32768
+iter  1240 | train_loss 4.6096 | lr 3.000e-04 | seq_len 256 | dt 1085.0ms | toks/step 32768
+iter  1260 | train_loss 4.6693 | lr 3.000e-04 | seq_len 256 | dt 1104.6ms | toks/step 32768
+iter  1280 | train_loss 4.6128 | lr 3.000e-04 | seq_len 256 | dt 1051.6ms | toks/step 32768
+iter  1300 | train_loss 4.7492 | lr 3.000e-04 | seq_len 256 | dt 1062.9ms | toks/step 32768
+iter  1320 | train_loss 4.6351 | lr 3.000e-04 | seq_len 256 | dt 1082.7ms | toks/step 32768
+iter  1340 | train_loss 4.6514 | lr 3.000e-04 | seq_len 256 | dt 1085.0ms | toks/step 32768
+iter  1360 | train_loss 4.6234 | lr 3.000e-04 | seq_len 256 | dt 1068.6ms | toks/step 32768
+iter  1380 | train_loss 4.6320 | lr 3.000e-04 | seq_len 256 | dt 1068.2ms | toks/step 32768
+iter  1400 | train_loss 4.5173 | val_loss 4.5142 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 1400: val_loss=4.5142
+iter  1420 | train_loss 4.6044 | lr 3.000e-04 | seq_len 256 | dt 1113.8ms | toks/step 32768
+iter  1440 | train_loss 4.5209 | lr 3.000e-04 | seq_len 256 | dt 1198.0ms | toks/step 32768
+iter  1460 | train_loss 4.5560 | lr 3.000e-04 | seq_len 256 | dt 1162.6ms | toks/step 32768
+iter  1480 | train_loss 4.4791 | lr 3.000e-04 | seq_len 256 | dt 1137.3ms | toks/step 32768
+iter  1500 | train_loss 4.6542 | lr 3.000e-04 | seq_len 512 | dt 1832.9ms | toks/step 65536
+iter  1520 | train_loss 4.4722 | lr 3.000e-04 | seq_len 512 | dt 1758.3ms | toks/step 65536
+iter  1540 | train_loss 4.3822 | lr 3.000e-04 | seq_len 512 | dt 1774.9ms | toks/step 65536
+iter  1560 | train_loss 4.3922 | lr 3.000e-04 | seq_len 512 | dt 1767.4ms | toks/step 65536
+iter  1580 | train_loss 4.4046 | lr 3.000e-04 | seq_len 512 | dt 1782.7ms | toks/step 65536
+iter  1600 | train_loss 4.3662 | val_loss 4.3304 | lr 3.000e-04 | seq_len 512
+new best checkpoint saved at iter 1600: val_loss=4.3304
+iter  1620 | train_loss 4.3066 | lr 2.850e-04 | seq_len 512 | dt 1761.0ms | toks/step 65536
+iter  1640 | train_loss 4.3531 | lr 2.700e-04 | seq_len 512 | dt 1811.1ms | toks/step 65536
+iter  1660 | train_loss 4.4062 | lr 2.550e-04 | seq_len 512 | dt 1763.6ms | toks/step 65536
+iter  1680 | train_loss 4.3085 | lr 2.400e-04 | seq_len 512 | dt 1759.9ms | toks/step 65536
+iter  1700 | train_loss 4.3148 | lr 2.250e-04 | seq_len 512 | dt 1753.6ms | toks/step 65536
+iter  1720 | train_loss 4.3435 | lr 2.100e-04 | seq_len 512 | dt 1749.5ms | toks/step 65536
+iter  1740 | train_loss 4.2562 | lr 1.950e-04 | seq_len 512 | dt 1771.7ms | toks/step 65536
+iter  1760 | train_loss 4.2436 | lr 1.800e-04 | seq_len 512 | dt 1762.4ms | toks/step 65536
+iter  1780 | train_loss 4.2124 | lr 1.650e-04 | seq_len 512 | dt 1782.2ms | toks/step 65536
+iter  1800 | train_loss 4.2137 | val_loss 4.2635 | lr 1.500e-04 | seq_len 512
+new best checkpoint saved at iter 1800: val_loss=4.2635
+iter  1820 | train_loss 4.2692 | lr 1.350e-04 | seq_len 512 | dt 1768.0ms | toks/step 65536
+iter  1840 | train_loss 4.2321 | lr 1.200e-04 | seq_len 512 | dt 1787.1ms | toks/step 65536
+iter  1860 | train_loss 4.2449 | lr 1.050e-04 | seq_len 512 | dt 1765.1ms | toks/step 65536
+iter  1880 | train_loss 4.1702 | lr 9.000e-05 | seq_len 512 | dt 1763.1ms | toks/step 65536
+iter  1900 | train_loss 4.1861 | lr 7.500e-05 | seq_len 512 | dt 1759.9ms | toks/step 65536
+iter  1920 | train_loss 4.1558 | lr 6.000e-05 | seq_len 512 | dt 1777.7ms | toks/step 65536
+iter  1940 | train_loss 4.1867 | lr 4.500e-05 | seq_len 512 | dt 1765.7ms | toks/step 65536
+iter  1960 | train_loss 4.1764 | lr 3.000e-05 | seq_len 512 | dt 1768.6ms | toks/step 65536
+iter  1980 | train_loss 4.1855 | lr 1.500e-05 | seq_len 512 | dt 1794.4ms | toks/step 65536
+iter  1999 | train_loss 4.1339 | val_loss 4.1245 | lr 7.500e-07 | seq_len 512
+new best checkpoint saved at iter 1999: val_loss=4.1245
+==> Evaluating out_tier1_quick_o2_wsd\checkpoint.pt on provided_val.bin
+
+--- Evaluating local model: . ---
+Loading model from .\out_tier1_quick_o2_wsd\checkpoint.pt...
+Total parameters:       92,079,872
+Trainable parameters:   92,079,872
+Evaluating on provided_val.bin (block_size=1024)...
+
+==================================================
+  Perplexity:          76.1540
+  Avg loss (nats):     4.332757
+  Tokens evaluated:    5,169,152
+  Total parameters:    92,079,872
+  Eval time:           94.7s
+==================================================
+==> Running a1_depth_width_12x640 (quick)
+train setup: optimizer_type=adamw, lr_schedule=cosine, device=cuda, dtype=bfloat16
+iter     0 | train_loss 10.9840 | val_loss 10.9615 | lr 1.500e-06 | seq_len 256
+new best checkpoint saved at iter 0: val_loss=10.9615
+iter    20 | train_loss 9.6676 | lr 3.150e-05 | seq_len 256 | dt 906.8ms | toks/step 32768
+iter    40 | train_loss 8.9364 | lr 6.150e-05 | seq_len 256 | dt 877.4ms | toks/step 32768
+iter    60 | train_loss 8.0245 | lr 9.150e-05 | seq_len 256 | dt 963.3ms | toks/step 32768
+iter    80 | train_loss 7.2851 | lr 1.215e-04 | seq_len 256 | dt 867.3ms | toks/step 32768
+iter   100 | train_loss 7.0837 | lr 1.515e-04 | seq_len 256 | dt 875.8ms | toks/step 32768
+iter   120 | train_loss 6.7427 | lr 1.815e-04 | seq_len 256 | dt 873.4ms | toks/step 32768
+iter   140 | train_loss 6.6055 | lr 2.115e-04 | seq_len 256 | dt 869.8ms | toks/step 32768
+iter   160 | train_loss 6.5408 | lr 2.415e-04 | seq_len 256 | dt 937.4ms | toks/step 32768
+iter   180 | train_loss 6.2080 | lr 2.715e-04 | seq_len 256 | dt 869.7ms | toks/step 32768
+iter   200 | train_loss 6.1963 | val_loss 6.2002 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 200: val_loss=6.2002
+iter   220 | train_loss 6.0824 | lr 2.999e-04 | seq_len 256 | dt 877.0ms | toks/step 32768
+iter   240 | train_loss 6.0432 | lr 2.997e-04 | seq_len 256 | dt 946.9ms | toks/step 32768
+iter   260 | train_loss 5.9511 | lr 2.993e-04 | seq_len 256 | dt 873.6ms | toks/step 32768
+iter   280 | train_loss 5.8902 | lr 2.987e-04 | seq_len 256 | dt 895.6ms | toks/step 32768
+iter   300 | train_loss 5.8049 | lr 2.979e-04 | seq_len 256 | dt 884.1ms | toks/step 32768
+iter   320 | train_loss 5.6866 | lr 2.970e-04 | seq_len 256 | dt 871.0ms | toks/step 32768
+iter   340 | train_loss 5.7662 | lr 2.960e-04 | seq_len 256 | dt 873.5ms | toks/step 32768
+iter   360 | train_loss 5.6689 | lr 2.948e-04 | seq_len 256 | dt 1443.4ms | toks/step 32768
+iter   380 | train_loss 5.5074 | lr 2.934e-04 | seq_len 256 | dt 890.0ms | toks/step 32768
+iter   400 | train_loss 5.4674 | val_loss 5.5127 | lr 2.919e-04 | seq_len 256
+new best checkpoint saved at iter 400: val_loss=5.5127
+iter   420 | train_loss 5.5515 | lr 2.902e-04 | seq_len 256 | dt 986.4ms | toks/step 32768
+iter   440 | train_loss 5.4200 | lr 2.883e-04 | seq_len 256 | dt 934.8ms | toks/step 32768
+iter   460 | train_loss 5.4645 | lr 2.863e-04 | seq_len 256 | dt 874.8ms | toks/step 32768
+iter   480 | train_loss 5.3049 | lr 2.842e-04 | seq_len 256 | dt 871.6ms | toks/step 32768
+iter   500 | train_loss 5.2684 | lr 2.819e-04 | seq_len 256 | dt 872.2ms | toks/step 32768
+iter   520 | train_loss 5.2798 | lr 2.795e-04 | seq_len 256 | dt 868.2ms | toks/step 32768
+iter   540 | train_loss 5.2262 | lr 2.769e-04 | seq_len 256 | dt 885.7ms | toks/step 32768
+iter   560 | train_loss 5.2448 | lr 2.742e-04 | seq_len 256 | dt 887.5ms | toks/step 32768
+iter   580 | train_loss 5.1762 | lr 2.714e-04 | seq_len 256 | dt 879.2ms | toks/step 32768
+iter   600 | train_loss 5.2028 | val_loss 5.1558 | lr 2.684e-04 | seq_len 256
+new best checkpoint saved at iter 600: val_loss=5.1558
+iter   620 | train_loss 5.1150 | lr 2.653e-04 | seq_len 256 | dt 990.0ms | toks/step 32768
+iter   640 | train_loss 5.1910 | lr 2.621e-04 | seq_len 256 | dt 902.5ms | toks/step 32768
+iter   660 | train_loss 5.1344 | lr 2.588e-04 | seq_len 256 | dt 935.3ms | toks/step 32768
+iter   680 | train_loss 5.0807 | lr 2.553e-04 | seq_len 256 | dt 934.8ms | toks/step 32768
+iter   700 | train_loss 5.0625 | lr 2.518e-04 | seq_len 256 | dt 883.9ms | toks/step 32768
+iter   720 | train_loss 5.0488 | lr 2.481e-04 | seq_len 256 | dt 874.4ms | toks/step 32768
+iter   740 | train_loss 4.9913 | lr 2.444e-04 | seq_len 256 | dt 911.3ms | toks/step 32768
+iter   760 | train_loss 4.8317 | lr 2.405e-04 | seq_len 256 | dt 885.2ms | toks/step 32768
+iter   780 | train_loss 5.0259 | lr 2.365e-04 | seq_len 256 | dt 878.3ms | toks/step 32768
+iter   800 | train_loss 4.8846 | val_loss 4.9234 | lr 2.325e-04 | seq_len 256
+new best checkpoint saved at iter 800: val_loss=4.9234
+iter   820 | train_loss 4.9548 | lr 2.284e-04 | seq_len 256 | dt 872.5ms | toks/step 32768
+iter   840 | train_loss 4.9134 | lr 2.242e-04 | seq_len 256 | dt 903.6ms | toks/step 32768
+iter   860 | train_loss 4.8138 | lr 2.199e-04 | seq_len 256 | dt 879.5ms | toks/step 32768
+iter   880 | train_loss 4.8374 | lr 2.156e-04 | seq_len 256 | dt 889.7ms | toks/step 32768
+iter   900 | train_loss 4.8840 | lr 2.112e-04 | seq_len 256 | dt 872.6ms | toks/step 32768
+iter   920 | train_loss 4.7842 | lr 2.067e-04 | seq_len 256 | dt 872.2ms | toks/step 32768
+iter   940 | train_loss 4.7301 | lr 2.022e-04 | seq_len 256 | dt 906.0ms | toks/step 32768
+iter   960 | train_loss 4.8613 | lr 1.977e-04 | seq_len 256 | dt 876.2ms | toks/step 32768
+iter   980 | train_loss 4.7160 | lr 1.931e-04 | seq_len 256 | dt 908.8ms | toks/step 32768
+iter  1000 | train_loss 4.7648 | val_loss 4.7798 | lr 1.884e-04 | seq_len 256
+new best checkpoint saved at iter 1000: val_loss=4.7798
+iter  1020 | train_loss 4.7792 | lr 1.838e-04 | seq_len 256 | dt 902.5ms | toks/step 32768
+iter  1040 | train_loss 4.6875 | lr 1.791e-04 | seq_len 256 | dt 873.7ms | toks/step 32768
+iter  1060 | train_loss 4.7000 | lr 1.744e-04 | seq_len 256 | dt 870.3ms | toks/step 32768
+iter  1080 | train_loss 4.7303 | lr 1.697e-04 | seq_len 256 | dt 870.2ms | toks/step 32768
+iter  1100 | train_loss 4.6341 | lr 1.650e-04 | seq_len 256 | dt 874.5ms | toks/step 32768
+iter  1120 | train_loss 4.6263 | lr 1.603e-04 | seq_len 256 | dt 871.4ms | toks/step 32768
+iter  1140 | train_loss 4.6428 | lr 1.556e-04 | seq_len 256 | dt 862.7ms | toks/step 32768
+iter  1160 | train_loss 4.7776 | lr 1.509e-04 | seq_len 256 | dt 877.8ms | toks/step 32768
+iter  1180 | train_loss 4.6212 | lr 1.462e-04 | seq_len 256 | dt 888.3ms | toks/step 32768
+iter  1200 | train_loss 4.6401 | val_loss 4.6818 | lr 1.416e-04 | seq_len 256
+new best checkpoint saved at iter 1200: val_loss=4.6818
+iter  1220 | train_loss 4.5811 | lr 1.369e-04 | seq_len 256 | dt 918.0ms | toks/step 32768
+iter  1240 | train_loss 4.6683 | lr 1.323e-04 | seq_len 256 | dt 869.6ms | toks/step 32768
+iter  1260 | train_loss 4.6223 | lr 1.278e-04 | seq_len 256 | dt 875.2ms | toks/step 32768
+iter  1280 | train_loss 4.6022 | lr 1.233e-04 | seq_len 256 | dt 928.9ms | toks/step 32768
+iter  1300 | train_loss 4.6335 | lr 1.188e-04 | seq_len 256 | dt 880.2ms | toks/step 32768
+iter  1320 | train_loss 4.6290 | lr 1.144e-04 | seq_len 256 | dt 881.2ms | toks/step 32768
+iter  1340 | train_loss 4.5845 | lr 1.101e-04 | seq_len 256 | dt 929.5ms | toks/step 32768
+iter  1360 | train_loss 4.5154 | lr 1.058e-04 | seq_len 256 | dt 885.1ms | toks/step 32768
+iter  1380 | train_loss 4.6543 | lr 1.016e-04 | seq_len 256 | dt 874.2ms | toks/step 32768
+iter  1400 | train_loss 4.5527 | val_loss 4.5379 | lr 9.750e-05 | seq_len 256
+new best checkpoint saved at iter 1400: val_loss=4.5379
+iter  1420 | train_loss 4.4966 | lr 9.346e-05 | seq_len 256 | dt 889.7ms | toks/step 32768
+iter  1440 | train_loss 4.5492 | lr 8.951e-05 | seq_len 256 | dt 875.1ms | toks/step 32768
+iter  1460 | train_loss 4.5317 | lr 8.565e-05 | seq_len 256 | dt 872.7ms | toks/step 32768
+iter  1480 | train_loss 4.5224 | lr 8.189e-05 | seq_len 256 | dt 890.6ms | toks/step 32768
+iter  1500 | train_loss 4.5546 | lr 7.822e-05 | seq_len 512 | dt 1636.1ms | toks/step 65536
+iter  1520 | train_loss 4.5503 | lr 7.467e-05 | seq_len 512 | dt 1618.4ms | toks/step 65536
+iter  1540 | train_loss 4.4706 | lr 7.122e-05 | seq_len 512 | dt 1603.0ms | toks/step 65536
+iter  1560 | train_loss 4.3933 | lr 6.789e-05 | seq_len 512 | dt 1601.0ms | toks/step 65536
+iter  1580 | train_loss 4.3902 | lr 6.468e-05 | seq_len 512 | dt 1608.3ms | toks/step 65536
+iter  1600 | train_loss 4.4705 | val_loss 4.3972 | lr 6.158e-05 | seq_len 512
+new best checkpoint saved at iter 1600: val_loss=4.3972
+iter  1620 | train_loss 4.4727 | lr 5.862e-05 | seq_len 512 | dt 1610.5ms | toks/step 65536
+iter  1640 | train_loss 4.5035 | lr 5.578e-05 | seq_len 512 | dt 1611.4ms | toks/step 65536
+iter  1660 | train_loss 4.4248 | lr 5.308e-05 | seq_len 512 | dt 1654.0ms | toks/step 65536
+iter  1680 | train_loss 4.3992 | lr 5.051e-05 | seq_len 512 | dt 1610.0ms | toks/step 65536
+iter  1700 | train_loss 4.4231 | lr 4.809e-05 | seq_len 512 | dt 1680.4ms | toks/step 65536
+iter  1720 | train_loss 4.3469 | lr 4.580e-05 | seq_len 512 | dt 1608.1ms | toks/step 65536
+iter  1740 | train_loss 4.4680 | lr 4.366e-05 | seq_len 512 | dt 1605.9ms | toks/step 65536
+iter  1760 | train_loss 4.3658 | lr 4.167e-05 | seq_len 512 | dt 1602.2ms | toks/step 65536
+iter  1780 | train_loss 4.3440 | lr 3.983e-05 | seq_len 512 | dt 1611.3ms | toks/step 65536
+iter  1800 | train_loss 4.3640 | val_loss 4.3991 | lr 3.814e-05 | seq_len 512
+iter  1820 | train_loss 4.3105 | lr 3.661e-05 | seq_len 512 | dt 1609.9ms | toks/step 65536
+iter  1840 | train_loss 4.3036 | lr 3.523e-05 | seq_len 512 | dt 1623.0ms | toks/step 65536
+iter  1860 | train_loss 4.4280 | lr 3.401e-05 | seq_len 512 | dt 1606.1ms | toks/step 65536
+iter  1880 | train_loss 4.3830 | lr 3.295e-05 | seq_len 512 | dt 1607.8ms | toks/step 65536
+iter  1900 | train_loss 4.3610 | lr 3.205e-05 | seq_len 512 | dt 1646.8ms | toks/step 65536
+iter  1920 | train_loss 4.3752 | lr 3.131e-05 | seq_len 512 | dt 1687.9ms | toks/step 65536
+iter  1940 | train_loss 4.3247 | lr 3.074e-05 | seq_len 512 | dt 1677.2ms | toks/step 65536
+iter  1960 | train_loss 4.3355 | lr 3.033e-05 | seq_len 512 | dt 1608.1ms | toks/step 65536
+iter  1980 | train_loss 4.3935 | lr 3.008e-05 | seq_len 512 | dt 1602.2ms | toks/step 65536
+iter  1999 | train_loss 4.3422 | val_loss 4.3498 | lr 3.000e-05 | seq_len 512
+new best checkpoint saved at iter 1999: val_loss=4.3498
+==> Evaluating out_tier1_quick_a1_depth_width_12x640\checkpoint.pt on provided_val.bin
+
+--- Evaluating local model: . ---
+Loading model from .\out_tier1_quick_a1_depth_width_12x640\checkpoint.pt...
+Total parameters:       88,706,816
+Trainable parameters:   88,706,816
+Evaluating on provided_val.bin (block_size=1024)...
+
+==================================================
+  Perplexity:          91.1833
+  Avg loss (nats):     4.512872
+  Tokens evaluated:    5,169,152
+  Total parameters:    88,706,816
+  Eval time:           91.7s
+==================================================
+==> Running a1_depth_width_16x576 (quick)
+train setup: optimizer_type=adamw, lr_schedule=cosine, device=cuda, dtype=bfloat16
+iter     0 | train_loss 10.9407 | val_loss 10.9343 | lr 1.500e-06 | seq_len 256
+new best checkpoint saved at iter 0: val_loss=10.9343
+iter    20 | train_loss 9.8032 | lr 3.150e-05 | seq_len 256 | dt 1057.9ms | toks/step 32768
+iter    40 | train_loss 9.0696 | lr 6.150e-05 | seq_len 256 | dt 1070.8ms | toks/step 32768
+iter    60 | train_loss 8.2381 | lr 9.150e-05 | seq_len 256 | dt 1058.0ms | toks/step 32768
+iter    80 | train_loss 7.5535 | lr 1.215e-04 | seq_len 256 | dt 1069.8ms | toks/step 32768
+iter   100 | train_loss 7.0707 | lr 1.515e-04 | seq_len 256 | dt 1070.6ms | toks/step 32768
+iter   120 | train_loss 6.8805 | lr 1.815e-04 | seq_len 256 | dt 1066.1ms | toks/step 32768
+iter   140 | train_loss 6.6947 | lr 2.115e-04 | seq_len 256 | dt 1065.9ms | toks/step 32768
+iter   160 | train_loss 6.5137 | lr 2.415e-04 | seq_len 256 | dt 1072.0ms | toks/step 32768
+iter   180 | train_loss 6.3800 | lr 2.715e-04 | seq_len 256 | dt 1071.8ms | toks/step 32768
+iter   200 | train_loss 6.2946 | val_loss 6.2550 | lr 3.000e-04 | seq_len 256
+new best checkpoint saved at iter 200: val_loss=6.2550
+iter   220 | train_loss 6.1175 | lr 2.999e-04 | seq_len 256 | dt 1071.8ms | toks/step 32768
+iter   240 | train_loss 6.0638 | lr 2.997e-04 | seq_len 256 | dt 1073.1ms | toks/step 32768
+iter   260 | train_loss 6.0655 | lr 2.993e-04 | seq_len 256 | dt 1086.3ms | toks/step 32768
+iter   280 | train_loss 5.8626 | lr 2.987e-04 | seq_len 256 | dt 1072.1ms | toks/step 32768
+iter   300 | train_loss 5.8252 | lr 2.979e-04 | seq_len 256 | dt 1071.4ms | toks/step 32768
+iter   320 | train_loss 5.7841 | lr 2.970e-04 | seq_len 256 | dt 1062.6ms | toks/step 32768
+iter   340 | train_loss 5.6863 | lr 2.960e-04 | seq_len 256 | dt 1059.0ms | toks/step 32768
+iter   360 | train_loss 5.6769 | lr 2.948e-04 | seq_len 256 | dt 1059.6ms | toks/step 32768
+iter   380 | train_loss 5.6107 | lr 2.934e-04 | seq_len 256 | dt 1120.4ms | toks/step 32768
+iter   400 | train_loss 5.5638 | val_loss 5.4999 | lr 2.919e-04 | seq_len 256
+new best checkpoint saved at iter 400: val_loss=5.4999
+iter   420 | train_loss 5.5145 | lr 2.902e-04 | seq_len 256 | dt 1073.8ms | toks/step 32768
+iter   440 | train_loss 5.5510 | lr 2.883e-04 | seq_len 256 | dt 1079.8ms | toks/step 32768
+iter   460 | train_loss 5.3994 | lr 2.863e-04 | seq_len 256 | dt 1065.6ms | toks/step 32768
+iter   480 | train_loss 5.3719 | lr 2.842e-04 | seq_len 256 | dt 1064.0ms | toks/step 32768
+iter   500 | train_loss 5.3645 | lr 2.819e-04 | seq_len 256 | dt 1062.7ms | toks/step 32768
+iter   520 | train_loss 5.2691 | lr 2.795e-04 | seq_len 256 | dt 1070.4ms | toks/step 32768
+iter   540 | train_loss 5.2708 | lr 2.769e-04 | seq_len 256 | dt 1070.6ms | toks/step 32768
+iter   560 | train_loss 5.2063 | lr 2.742e-04 | seq_len 256 | dt 1074.3ms | toks/step 32768
+iter   580 | train_loss 5.1909 | lr 2.714e-04 | seq_len 256 | dt 1069.6ms | toks/step 32768
+iter   600 | train_loss 5.1977 | val_loss 5.2179 | lr 2.684e-04 | seq_len 256
+new best checkpoint saved at iter 600: val_loss=5.2179
+iter   620 | train_loss 5.1632 | lr 2.653e-04 | seq_len 256 | dt 1084.9ms | toks/step 32768
+iter   640 | train_loss 5.0727 | lr 2.621e-04 | seq_len 256 | dt 1072.6ms | toks/step 32768
+iter   660 | train_loss 5.1275 | lr 2.588e-04 | seq_len 256 | dt 1065.9ms | toks/step 32768
+iter   680 | train_loss 5.0942 | lr 2.553e-04 | seq_len 256 | dt 1141.6ms | toks/step 32768
+iter   700 | train_loss 5.0878 | lr 2.518e-04 | seq_len 256 | dt 1152.6ms | toks/step 32768
+iter   720 | train_loss 5.0035 | lr 2.481e-04 | seq_len 256 | dt 1073.8ms | toks/step 32768
+iter   740 | train_loss 5.0367 | lr 2.444e-04 | seq_len 256 | dt 1130.3ms | toks/step 32768
+iter   760 | train_loss 5.0260 | lr 2.405e-04 | seq_len 256 | dt 1138.7ms | toks/step 32768
+iter   780 | train_loss 4.9824 | lr 2.365e-04 | seq_len 256 | dt 1062.7ms | toks/step 32768
+iter   800 | train_loss 4.9268 | val_loss 4.9793 | lr 2.325e-04 | seq_len 256
+new best checkpoint saved at iter 800: val_loss=4.9793
+iter   820 | train_loss 4.8933 | lr 2.284e-04 | seq_len 256 | dt 1065.4ms | toks/step 32768
+iter   840 | train_loss 4.9278 | lr 2.242e-04 | seq_len 256 | dt 1076.6ms | toks/step 32768
+iter   860 | train_loss 4.8752 | lr 2.199e-04 | seq_len 256 | dt 1061.2ms | toks/step 32768
+iter   880 | train_loss 4.9099 | lr 2.156e-04 | seq_len 256 | dt 1073.6ms | toks/step 32768
+iter   900 | train_loss 4.8662 | lr 2.112e-04 | seq_len 256 | dt 1065.8ms | toks/step 32768
+iter   920 | train_loss 4.8427 | lr 2.067e-04 | seq_len 256 | dt 1124.5ms | toks/step 32768
+iter   940 | train_loss 4.8607 | lr 2.022e-04 | seq_len 256 | dt 1071.8ms | toks/step 32768
+iter   960 | train_loss 4.9251 | lr 1.977e-04 | seq_len 256 | dt 1069.9ms | toks/step 32768
+iter   980 | train_loss 4.8229 | lr 1.931e-04 | seq_len 256 | dt 1082.3ms | toks/step 32768
+iter  1000 | train_loss 4.7783 | val_loss 4.7681 | lr 1.884e-04 | seq_len 256
+new best checkpoint saved at iter 1000: val_loss=4.7681
+iter  1020 | train_loss 4.7817 | lr 1.838e-04 | seq_len 256 | dt 1061.1ms | toks/step 32768
+iter  1040 | train_loss 4.6793 | lr 1.791e-04 | seq_len 256 | dt 1061.4ms | toks/step 32768
+iter  1060 | train_loss 4.7664 | lr 1.744e-04 | seq_len 256 | dt 1065.4ms | toks/step 32768
+iter  1080 | train_loss 4.7243 | lr 1.697e-04 | seq_len 256 | dt 1081.3ms | toks/step 32768
+iter  1100 | train_loss 4.7579 | lr 1.650e-04 | seq_len 256 | dt 1093.8ms | toks/step 32768
+iter  1120 | train_loss 4.6749 | lr 1.603e-04 | seq_len 256 | dt 1063.7ms | toks/step 32768
+iter  1140 | train_loss 4.7251 | lr 1.556e-04 | seq_len 256 | dt 1100.7ms | toks/step 32768
+iter  1160 | train_loss 4.6916 | lr 1.509e-04 | seq_len 256 | dt 1177.0ms | toks/step 32768
+iter  1180 | train_loss 4.6764 | lr 1.462e-04 | seq_len 256 | dt 1091.6ms | toks/step 32768
+iter  1200 | train_loss 4.7013 | val_loss 4.6462 | lr 1.416e-04 | seq_len 256
+new best checkpoint saved at iter 1200: val_loss=4.6462
+iter  1220 | train_loss 4.5958 | lr 1.369e-04 | seq_len 256 | dt 1091.4ms | toks/step 32768
+iter  1240 | train_loss 4.6006 | lr 1.323e-04 | seq_len 256 | dt 1076.9ms | toks/step 32768
+iter  1260 | train_loss 4.5060 | lr 1.278e-04 | seq_len 256 | dt 1070.7ms | toks/step 32768
+iter  1280 | train_loss 4.6559 | lr 1.233e-04 | seq_len 256 | dt 1071.2ms | toks/step 32768
+iter  1300 | train_loss 4.6257 | lr 1.188e-04 | seq_len 256 | dt 1121.5ms | toks/step 32768
+iter  1320 | train_loss 4.5407 | lr 1.144e-04 | seq_len 256 | dt 1068.8ms | toks/step 32768
+iter  1340 | train_loss 4.5240 | lr 1.101e-04 | seq_len 256 | dt 1096.4ms | toks/step 32768
+iter  1360 | train_loss 4.6188 | lr 1.058e-04 | seq_len 256 | dt 1071.8ms | toks/step 32768
+iter  1380 | train_loss 4.6193 | lr 1.016e-04 | seq_len 256 | dt 1078.3ms | toks/step 32768
+iter  1400 | train_loss 4.4859 | val_loss 4.6139 | lr 9.750e-05 | seq_len 256
+new best checkpoint saved at iter 1400: val_loss=4.6139
+iter  1420 | train_loss 4.5593 | lr 9.346e-05 | seq_len 256 | dt 1096.5ms | toks/step 32768
+iter  1440 | train_loss 4.5340 | lr 8.951e-05 | seq_len 256 | dt 1081.7ms | toks/step 32768
+iter  1460 | train_loss 4.5139 | lr 8.565e-05 | seq_len 256 | dt 1210.2ms | toks/step 32768
+iter  1480 | train_loss 4.4887 | lr 8.189e-05 | seq_len 256 | dt 1080.4ms | toks/step 32768
+iter  1500 | train_loss 4.6322 | lr 7.822e-05 | seq_len 512 | dt 1733.3ms | toks/step 65536
+iter  1520 | train_loss 4.5377 | lr 7.467e-05 | seq_len 512 | dt 1716.6ms | toks/step 65536
+iter  1540 | train_loss 4.4860 | lr 7.122e-05 | seq_len 512 | dt 1720.7ms | toks/step 65536
+iter  1560 | train_loss 4.5424 | lr 6.789e-05 | seq_len 512 | dt 1721.2ms | toks/step 65536
+iter  1580 | train_loss 4.4209 | lr 6.468e-05 | seq_len 512 | dt 1785.4ms | toks/step 65536
+iter  1600 | train_loss 4.4660 | val_loss 4.3822 | lr 6.158e-05 | seq_len 512
+new best checkpoint saved at iter 1600: val_loss=4.3822
+iter  1620 | train_loss 4.4804 | lr 5.862e-05 | seq_len 512 | dt 1715.8ms | toks/step 65536
+iter  1640 | train_loss 4.4446 | lr 5.578e-05 | seq_len 512 | dt 1712.8ms | toks/step 65536
+iter  1660 | train_loss 4.4616 | lr 5.308e-05 | seq_len 512 | dt 1709.9ms | toks/step 65536
+iter  1680 | train_loss 4.4806 | lr 5.051e-05 | seq_len 512 | dt 1715.9ms | toks/step 65536
+iter  1700 | train_loss 4.4168 | lr 4.809e-05 | seq_len 512 | dt 1714.1ms | toks/step 65536
+iter  1720 | train_loss 4.4149 | lr 4.580e-05 | seq_len 512 | dt 1734.1ms | toks/step 65536
+iter  1740 | train_loss 4.4368 | lr 4.366e-05 | seq_len 512 | dt 1715.8ms | toks/step 65536
+iter  1760 | train_loss 4.4028 | lr 4.167e-05 | seq_len 512 | dt 1715.6ms | toks/step 65536
+iter  1780 | train_loss 4.4261 | lr 3.983e-05 | seq_len 512 | dt 1718.4ms | toks/step 65536
+iter  1800 | train_loss 4.3853 | val_loss 4.3792 | lr 3.814e-05 | seq_len 512
+new best checkpoint saved at iter 1800: val_loss=4.3792
+iter  1820 | train_loss 4.4204 | lr 3.661e-05 | seq_len 512 | dt 1720.4ms | toks/step 65536
+iter  1840 | train_loss 4.3499 | lr 3.523e-05 | seq_len 512 | dt 1713.4ms | toks/step 65536
+iter  1860 | train_loss 4.4463 | lr 3.401e-05 | seq_len 512 | dt 1772.8ms | toks/step 65536
+iter  1880 | train_loss 4.3533 | lr 3.295e-05 | seq_len 512 | dt 1719.4ms | toks/step 65536
+iter  1900 | train_loss 4.4561 | lr 3.205e-05 | seq_len 512 | dt 1714.1ms | toks/step 65536
+iter  1920 | train_loss 4.3721 | lr 3.131e-05 | seq_len 512 | dt 1759.6ms | toks/step 65536
+iter  1940 | train_loss 4.3747 | lr 3.074e-05 | seq_len 512 | dt 1718.6ms | toks/step 65536
+iter  1960 | train_loss 4.3768 | lr 3.033e-05 | seq_len 512 | dt 1718.4ms | toks/step 65536
+iter  1980 | train_loss 4.3084 | lr 3.008e-05 | seq_len 512 | dt 1718.2ms | toks/step 65536
+iter  1999 | train_loss 4.3389 | val_loss 4.3748 | lr 3.000e-05 | seq_len 512
+new best checkpoint saved at iter 1999: val_loss=4.3748
+==> Evaluating out_tier1_quick_a1_depth_width_16x576\checkpoint.pt on provided_val.bin
+
+--- Evaluating local model: . ---
+Loading model from .\out_tier1_quick_a1_depth_width_16x576\checkpoint.pt...
+Total parameters:       90,900,608
+Trainable parameters:   90,900,608
+Evaluating on provided_val.bin (block_size=1024)...
+
+==================================================
+  Perplexity:          93.0454
+  Avg loss (nats):     4.533088
+  Tokens evaluated:    5,169,152
+  Total parameters:    90,900,608
+  Eval time:           96.3s
+==================================================
+==> Running r1_fixed_1024 (quick)
+train setup: optimizer_type=adamw, lr_schedule=cosine, device=cuda, dtype=bfloat16
+iter     0 | train_loss 10.9158 | val_loss 10.8958 | lr 1.500e-06 | seq_len 1024
+new best checkpoint saved at iter 0: val_loss=10.8958
+iter    20 | train_loss 9.9179 | lr 3.150e-05 | seq_len 1024 | dt 12994.6ms | toks/step 131072
+iter    40 | train_loss 9.1774 | lr 6.150e-05 | seq_len 1024 | dt 13594.6ms | toks/step 131072
+iter    60 | train_loss 8.3869 | lr 9.150e-05 | seq_len 1024 | dt 13734.3ms | toks/step 131072
+iter    80 | train_loss 7.5692 | lr 1.215e-04 | seq_len 1024 | dt 13687.8ms | toks/step 131072
+iter   100 | train_loss 7.0757 | lr 1.515e-04 | seq_len 1024 | dt 12940.9ms | toks/step 131072
+iter   120 | train_loss 6.7644 | lr 1.815e-04 | seq_len 1024 | dt 12906.2ms | toks/step 131072
+iter   140 | train_loss 6.5668 | lr 2.115e-04 | seq_len 1024 | dt 12831.0ms | toks/step 131072
+iter   160 | train_loss 6.3602 | lr 2.415e-04 | seq_len 1024 | dt 12790.2ms | toks/step 131072
+iter   180 | train_loss 6.2230 | lr 2.715e-04 | seq_len 1024 | dt 13732.8ms | toks/step 131072
+iter   200 | train_loss 6.0575 | val_loss 6.1012 | lr 3.000e-04 | seq_len 1024
+new best checkpoint saved at iter 200: val_loss=6.1012
+iter   220 | train_loss 5.9654 | lr 2.999e-04 | seq_len 1024 | dt 13619.3ms | toks/step 131072
+iter   240 | train_loss 5.8353 | lr 2.997e-04 | seq_len 1024 | dt 13297.6ms | toks/step 131072
+iter   260 | train_loss 5.7710 | lr 2.993e-04 | seq_len 1024 | dt 13737.6ms | toks/step 131072
+iter   280 | train_loss 5.6268 | lr 2.987e-04 | seq_len 1024 | dt 13743.5ms | toks/step 131072
+iter   300 | train_loss 5.4790 | lr 2.979e-04 | seq_len 1024 | dt 13594.2ms | toks/step 131072
+iter   320 | train_loss 5.4761 | lr 2.970e-04 | seq_len 1024 | dt 13777.6ms | toks/step 131072
+iter   340 | train_loss 5.3529 | lr 2.960e-04 | seq_len 1024 | dt 13916.4ms | toks/step 131072
+iter   360 | train_loss 5.3382 | lr 2.948e-04 | seq_len 1024 | dt 12846.3ms | toks/step 131072
+iter   380 | train_loss 5.2812 | lr 2.934e-04 | seq_len 1024 | dt 13719.6ms | toks/step 131072
+iter   400 | train_loss 5.2052 | val_loss 5.2208 | lr 2.919e-04 | seq_len 1024
+new best checkpoint saved at iter 400: val_loss=5.2208

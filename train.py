@@ -8,6 +8,7 @@ from contextlib import nullcontext
 
 import numpy as np
 import torch
+from torch.optim.optimizer import Optimizer
 
 from model import GPT, GPTConfig
 
@@ -47,9 +48,16 @@ weight_decay = 0.1
 beta1 = 0.9
 beta2 = 0.95
 grad_clip = 1.0
+optimizer_type = "adamw"
 
 warmup_iters = 100
 lr_decay_iters = 2000
+lr_schedule = "cosine"
+wsd_cooldown_frac = 0.2
+wsd_final_lr = 0.0
+muon_lr = 0.02
+muon_momentum = 0.95
+muon_ns_steps = 5
 
 seq_len_schedule = [(0, 256), (500, 512), (1200, 1024)]
 early_stop_patience = 0
@@ -114,6 +122,58 @@ def cuda_arch_in_this_torch_build() -> bool:
 def triton_importable() -> bool:
     """Inductor (default ``torch.compile`` backend) needs Triton for CUDA; often missing on Windows."""
     return importlib.util.find_spec("triton") is not None
+
+
+def _newton_schulz_orthogonalize(update: torch.Tensor, steps: int, eps: float = 1e-7) -> torch.Tensor:
+    """Approximate orthogonalization used by Muon-style updates."""
+    x = update.float()
+    if x.numel() == 0:
+        return update
+    transposed = False
+    if x.size(0) < x.size(1):
+        x = x.t()
+        transposed = True
+    x = x / (x.norm() + eps)
+    for _ in range(steps):
+        xtx = x.transpose(0, 1) @ x
+        x = 1.5 * x - 0.5 * (x @ xtx)
+    if transposed:
+        x = x.t()
+    return x.to(dtype=update.dtype)
+
+
+class Muon(Optimizer):
+    """Minimal Muon optimizer for 2D matrix parameters."""
+
+    def __init__(self, params, lr=0.02, momentum=0.95, ns_steps=5, eps=1e-7):
+        defaults = dict(lr=lr, momentum=momentum, ns_steps=ns_steps, eps=eps)
+        super().__init__(params, defaults)
+
+    @torch.no_grad()
+    def step(self, closure=None):
+        loss = None
+        if closure is not None:
+            with torch.enable_grad():
+                loss = closure()
+        for group in self.param_groups:
+            lr = group["lr"]
+            momentum = group["momentum"]
+            ns_steps = group["ns_steps"]
+            eps = group["eps"]
+            for p in group["params"]:
+                if p.grad is None:
+                    continue
+                g = p.grad
+                if g.is_sparse:
+                    raise RuntimeError("Muon does not support sparse gradients")
+                state = self.state[p]
+                if "momentum_buffer" not in state:
+                    state["momentum_buffer"] = torch.zeros_like(g)
+                buf = state["momentum_buffer"]
+                buf.mul_(momentum).add_(g, alpha=1.0 - momentum)
+                orth = _newton_schulz_orthogonalize(buf, ns_steps, eps=eps)
+                p.add_(orth, alpha=-lr)
+        return loss
 
 
 extra_args = sys.argv[1:]
@@ -235,15 +295,91 @@ if compile and device_type == "cuda" and not triton_importable():
         "(common on Windows). Disabling compile; install triton or set compile=False in config."
     )
     compile = False
+def make_adamw_optimizer(params, lr):
+    adamw_kwargs = dict(lr=lr, betas=(beta1, beta2), weight_decay=weight_decay)
+    if "fused" in inspect.signature(torch.optim.AdamW).parameters:
+        adamw_kwargs["fused"] = (device_type == "cuda")
+    return torch.optim.AdamW(params, **adamw_kwargs)
+
+
+named_params = list(model.named_parameters())
+
+if optimizer_type == "adamw":
+    optimizer = make_adamw_optimizer([p for _, p in named_params], learning_rate)
+    if resume_optimizer_state is not None:
+        if isinstance(resume_optimizer_state, dict) and "adamw" in resume_optimizer_state:
+            optimizer.load_state_dict(resume_optimizer_state["adamw"])
+        else:
+            optimizer.load_state_dict(resume_optimizer_state)
+elif optimizer_type == "muon_adamw":
+    muon_params = []
+    adamw_params = []
+    for name, param in named_params:
+        if not param.requires_grad:
+            continue
+        if param.ndim == 2 and "transformer" in name and ".h." in name:
+            muon_params.append(param)
+        else:
+            adamw_params.append(param)
+    optimizer = {
+        "muon": Muon(muon_params, lr=muon_lr, momentum=muon_momentum, ns_steps=muon_ns_steps),
+        "adamw": make_adamw_optimizer(adamw_params, learning_rate),
+    }
+    if resume_optimizer_state is not None:
+        if isinstance(resume_optimizer_state, dict) and "muon" in resume_optimizer_state:
+            optimizer["muon"].load_state_dict(resume_optimizer_state["muon"])
+            optimizer["adamw"].load_state_dict(resume_optimizer_state["adamw"])
+        else:
+            print("warning: resume optimizer state is not muon_adamw; restarting optimizer state")
+else:
+    raise ValueError(f"unsupported optimizer_type={optimizer_type}")
+
+print(
+    "train setup: "
+    f"optimizer_type={optimizer_type}, "
+    f"lr_schedule={lr_schedule}, "
+    f"device={device}, "
+    f"dtype={dtype}"
+)
+
+
+def optimizer_zero_grad(opt):
+    if isinstance(opt, dict):
+        for sub_opt in opt.values():
+            sub_opt.zero_grad(set_to_none=True)
+    else:
+        opt.zero_grad(set_to_none=True)
+
+
+def optimizer_step(opt):
+    if isinstance(opt, dict):
+        for sub_opt in opt.values():
+            sub_opt.step()
+    else:
+        opt.step()
+
+
+def set_optimizer_lr(opt, lr):
+    if isinstance(opt, dict):
+        for param_group in opt["adamw"].param_groups:
+            param_group["lr"] = lr
+        muon_scale = muon_lr / max(learning_rate, 1e-12)
+        muon_effective_lr = lr * muon_scale
+        for param_group in opt["muon"].param_groups:
+            param_group["lr"] = muon_effective_lr
+    else:
+        for param_group in opt.param_groups:
+            param_group["lr"] = lr
+
+
+def optimizer_state_dict(opt):
+    if isinstance(opt, dict):
+        return {"type": optimizer_type, "muon": opt["muon"].state_dict(), "adamw": opt["adamw"].state_dict()}
+    return opt.state_dict()
+
+
 if compile:
     model = torch.compile(model)
-
-adamw_kwargs = dict(lr=learning_rate, betas=(beta1, beta2), weight_decay=weight_decay)
-if "fused" in inspect.signature(torch.optim.AdamW).parameters:
-    adamw_kwargs["fused"] = (device_type == "cuda")
-optimizer = torch.optim.AdamW(model.parameters(), **adamw_kwargs)
-if resume_optimizer_state is not None:
-    optimizer.load_state_dict(resume_optimizer_state)
 
 
 def get_seq_len(it):
@@ -255,13 +391,27 @@ def get_seq_len(it):
 
 
 def get_lr(it):
-    if it < warmup_iters:
-        return learning_rate * (it + 1) / max(1, warmup_iters)
-    if it >= lr_decay_iters:
-        return min_lr
-    decay_ratio = (it - warmup_iters) / max(1, lr_decay_iters - warmup_iters)
-    coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio))
-    return min_lr + coeff * (learning_rate - min_lr)
+    if lr_schedule == "cosine":
+        if it < warmup_iters:
+            return learning_rate * (it + 1) / max(1, warmup_iters)
+        if it >= lr_decay_iters:
+            return min_lr
+        decay_ratio = (it - warmup_iters) / max(1, lr_decay_iters - warmup_iters)
+        coeff = 0.5 * (1.0 + math.cos(math.pi * decay_ratio))
+        return min_lr + coeff * (learning_rate - min_lr)
+    if lr_schedule == "wsd":
+        warmup = max(0, warmup_iters)
+        cooldown_iters = max(1, int(max_iters * wsd_cooldown_frac))
+        stable_end = max(warmup, max_iters - cooldown_iters)
+        if it < warmup:
+            return learning_rate * (it + 1) / max(1, warmup)
+        if it < stable_end:
+            return learning_rate
+        if it >= max_iters:
+            return wsd_final_lr
+        decay_ratio = (it - stable_end) / max(1, max_iters - stable_end)
+        return learning_rate + decay_ratio * (wsd_final_lr - learning_rate)
+    raise ValueError(f"unsupported lr_schedule={lr_schedule}")
 
 
 @torch.no_grad()
@@ -283,11 +433,10 @@ evals_without_improvement = 0
 t0 = time.time()
 for iter_num in range(resume_iter_num, max_iters):
     lr = get_lr(iter_num)
-    for param_group in optimizer.param_groups:
-        param_group["lr"] = lr
+    set_optimizer_lr(optimizer, lr)
 
     seq_len = get_seq_len(iter_num)
-    optimizer.zero_grad(set_to_none=True)
+    optimizer_zero_grad(optimizer)
     train_loss_accum = 0.0
     for micro_step in range(gradient_accumulation_steps):
         xb, yb = train_loader.get_batch(seq_len=seq_len, device=device)
@@ -299,7 +448,7 @@ for iter_num in range(resume_iter_num, max_iters):
 
     if grad_clip > 0:
         torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
-    optimizer.step()
+    optimizer_step(optimizer)
 
     if iter_num % eval_interval == 0 or iter_num == max_iters - 1:
         val_loss = estimate_val_loss(iter_num)
@@ -309,7 +458,7 @@ for iter_num in range(resume_iter_num, max_iters):
         )
         checkpoint = {
             "model": model.state_dict(),
-            "optimizer": optimizer.state_dict(),
+            "optimizer": optimizer_state_dict(optimizer),
             "config": model_args,
             "iter_num": iter_num,
             "best_val_loss": best_val_loss,
