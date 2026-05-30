@@ -1,7 +1,5 @@
 build-nanogpt/
-*.bin
 ckpt/
-val.bin
 
 
 # Byte-compiled / optimized / DLL files
